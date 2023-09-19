@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const telahome = () => {
+const TelaHome = () => {
   return (
     <View>
       <Text>Tela Inicial</Text>
@@ -9,6 +9,6 @@ const telahome = () => {
   )
 }
 
-export default telahome
+export default TelaHome
 
 const styles = StyleSheet.create({})

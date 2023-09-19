@@ -3,17 +3,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import telalogin from './screens/telalogin';
-import telahome from './screens/telahome';
+import TelaLogin from './screens/TelaLogin';
+import TelaHome from './screens/TelaHome';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-<NavigationContainer>
+    <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={telalogin} />
-        <Stack.Screen name="Home" component={telahome} />
+        <Stack.Screen name="Login" component={TelaLogin} />
+        <Stack.Screen name="Home" component={TelaLogin} />
       </Stack.Navigator>
     </NavigationContainer>
   );

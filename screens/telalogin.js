@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { KeyboardAvoidingView,  TextInput, TouchableOpacity } from 'react-native'
 
-const telalogin = () => {
+const TelaLogin = () => {
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -10,14 +11,14 @@ const telalogin = () => {
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="Email"
-          value={email}
-          onChangeText={text => setEmail(text)}
+          //value={email}
+         // onChangeText={text => setEmail(text)}
           style={styles.input}
         />
         <TextInput
           placeholder="Senha"
-          value={password}
-          onChangeText={text => setPassword(text)}
+          //value={password}
+         // onChangeText={text => setPassword(text)}
           style={styles.input}
           secureTextEntry
         />
@@ -25,13 +26,13 @@ const telalogin = () => {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity
-          onPress={handleLogin}
+          //onPress={identificadorLogin}
           style={styles.button}
         >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={handleSignUp}
+          //onPress={identificadorInscricao}
           style={[styles.button, styles.buttonOutline]}
         >
           <Text style={styles.buttonOutlineText}>Registro</Text>
@@ -41,7 +42,7 @@ const telalogin = () => {
   )
 }
 
-export default telalogin
+export default TelaLogin
 
 const styles = StyleSheet.create({
   container: {
