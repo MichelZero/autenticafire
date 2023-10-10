@@ -1,8 +1,33 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { KeyboardAvoidingView,  TextInput, TouchableOpacity } from 'react-native'
+import {autentica} from '../firebase.js' // importa a variável global autentica
 
 const TelaLogin = () => {
+  const [email, setEmail] = useState('')  
+  const [password, setPassword] = useState('')
+
+  const identificadorInscricao = () => {
+    autentica
+      .createUserWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Registro:', user.email);
+      })
+      .catch(error => alert(error.message))
+  }
+
+  const identificadorLogin = () => {
+    autentica
+      .signInWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Logado:', user.email);
+      })
+      .catch(error => alert(error.message))
+  }
+
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -11,14 +36,14 @@ const TelaLogin = () => {
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="Email"
-          //value={email}
-         // onChangeText={text => setEmail(text)}
+          value={email}
+          onChangeText={text => setEmail(text)}
           style={styles.input}
         />
         <TextInput
           placeholder="Senha"
-          //value={password}
-         // onChangeText={text => setPassword(text)}
+          value={password}
+          onChangeText={text => setPassword(text)}
           style={styles.input}
           secureTextEntry
         />
@@ -26,13 +51,13 @@ const TelaLogin = () => {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity
-          //onPress={identificadorLogin}
+          onPress={identificadorLogin}
           style={styles.button}
         >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          //onPress={identificadorInscricao}
+          onPress={identificadorInscricao}
           style={[styles.button, styles.buttonOutline]}
         >
           <Text style={styles.buttonOutlineText}>Registro</Text>
