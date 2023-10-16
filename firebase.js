@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
-import firebase from 'firebase'
-require('firebase/auth')
+import firebase from 'firebase/compact/app'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -15,6 +14,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const autentica = firebase.auth(); // cria uma variável global com o firebase
-export { autentica }; // exporta a variável global
+firebase.initializeApp(firebaseConfig);
+
+export default firebase

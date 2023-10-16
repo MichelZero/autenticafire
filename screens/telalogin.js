@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { KeyboardAvoidingView,  TextInput, TouchableOpacity } from 'react-native'
-import {autentica} from '../firebase.js' // importa a variável global autentica
+import { firebase } from '../firebase.js' // importa a variável global autentica
 
 const TelaLogin = () => {
   const [email, setEmail] = useState('')  
   const [password, setPassword] = useState('')
 
   const identificadorInscricao = () => {
-    autentica
+    firebase
       .createUserWithEmailAndPassword(email, password)
       .then(userCredentials => {
         const user = userCredentials.user;
@@ -18,7 +18,7 @@ const TelaLogin = () => {
   }
 
   const identificadorLogin = () => {
-    autentica
+    firebase
       .signInWithEmailAndPassword(email, password)
       .then(userCredentials => {
         const user = userCredentials.user;
