@@ -1,30 +1,31 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { KeyboardAvoidingView,  TextInput, TouchableOpacity } from 'react-native'
-import { firebase } from '../firebase.js' // importa a variável global autentica
+//import { firebase } from '../Firebase.js' // importa a variável global firebase
+import firebase from '../Firebase.js' // importa a variável global firebase
 
 const TelaLogin = () => {
   const [email, setEmail] = useState('')  
   const [password, setPassword] = useState('')
 
   const identificadorInscricao = () => {
-    firebase
-      .createUserWithEmailAndPassword(email, password)
-      .then(userCredentials => {
+    firebase.createUserWithEmailAndPassword(email, password)
+      // .createUserWithEmailAndPassword(email, password)
+    firebase.then(userCredentials => {
         const user = userCredentials.user;
         console.log('Registro:', user.email);
       })
-      .catch(error => alert(error.message))
+  firebase.catch(error => alert(error.message))
   }
 
   const identificadorLogin = () => {
-    firebase
-      .signInWithEmailAndPassword(email, password)
-      .then(userCredentials => {
+    firebase.signInWithEmailAndPassword(email, password)
+      // .signInWithEmailAndPassword(email, password)
+    firebase.then(userCredentials => {
         const user = userCredentials.user;
         console.log('Logado:', user.email);
       })
-      .catch(error => alert(error.message))
+    firebase.catch(error => alert(error.message))
   }
 
 
