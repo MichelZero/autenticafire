@@ -5,28 +5,7 @@ import { KeyboardAvoidingView,  TextInput, TouchableOpacity } from 'react-native
 import firebase from '../Firebase.js' // importa a variável global firebase
 
 const TelaLogin = () => {
-  const [email, setEmail] = useState('')  
-  const [password, setPassword] = useState('')
-
-  const identificadorInscricao = () => {
-    firebase.createUserWithEmailAndPassword(email, password)
-      // .createUserWithEmailAndPassword(email, password)
-    firebase.then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('Registro:', user.email);
-      })
-  firebase.catch(error => alert(error.message))
-  }
-
-  const identificadorLogin = () => {
-    firebase.signInWithEmailAndPassword(email, password)
-      // .signInWithEmailAndPassword(email, password)
-    firebase.then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('Logado:', user.email);
-      })
-    firebase.catch(error => alert(error.message))
-  }
+  
 
 
   return (
@@ -37,14 +16,14 @@ const TelaLogin = () => {
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="Email"
-          value={email}
-          onChangeText={text => setEmail(text)}
+         // value={email}
+          //onChangeText={text => setEmail(text)}
           style={styles.input}
         />
         <TextInput
           placeholder="Senha"
-          value={password}
-          onChangeText={text => setPassword(text)}
+          //value={password}
+         // onChangeText={text => setPassword(text)}
           style={styles.input}
           secureTextEntry
         />
@@ -52,13 +31,13 @@ const TelaLogin = () => {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity
-          onPress={identificadorLogin}
+         // onPress={identificadorLogin}
           style={styles.button}
         >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={identificadorInscricao}
+         // onPress={identificadorInscricao}
           style={[styles.button, styles.buttonOutline]}
         >
           <Text style={styles.buttonOutlineText}>Registro</Text>
