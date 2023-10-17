@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { KeyboardAvoidingView,  TextInput, TouchableOpacity } from 'react-native'
-//import { firebase } from '../Firebase.js' // importa a variável global firebase
-import firebase from '../Firebase.js' // importa a variável global firebase
+
 
 const TelaLogin = () => {
-  
+  // const [email, setEmail] = useState('')  
+  // const [password, setPassword] = useState('')
+
+  // const navigation = useNavigation()
 
 
   return (
